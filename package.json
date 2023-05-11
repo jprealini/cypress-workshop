@@ -1,0 +1,19 @@
+{
+  "name": "cypress-workshopb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "jp": "cypress open --e2e --browser=chrome",
+    "jpfirefox": "cypress open --e2e --browser=firefox",
+    "jprun": "cypress run --e2e --browser=chrome",
+    "otroscript": "cypress run --browser firefox --config viewportWidth=1280,viewportHeight=720"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.9.0",
+    "cypress-tags": "^1.1.2"
+  }
+}
