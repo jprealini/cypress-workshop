@@ -7,7 +7,7 @@ describe("Login Page", () => {
     });
 
     it("Valid Login", () => {
-      cy.get("[data-test=app-name-logo]").should("be.visible")
+      cy.dataTest("app-name-logo").should("be.visible")
     })
   });
 
@@ -17,7 +17,7 @@ describe("Login Page", () => {
     });
 
     it("Invalid Login", () => {
-      cy.get("[data-test=signin-error]").should("be.visible")
+      cy.dataTest("signin-error").should("be.visible")
     })
   });
 

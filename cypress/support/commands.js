@@ -30,3 +30,7 @@ Cypress.Commands.add("login", (username, password) => {
     cy.get("#password").type(password)
     cy.get("[data-test=signin-submit]").click()
 })
+
+Cypress.Commands.add('dataTest', (value) => {
+    return cy.get(`[data-test=${value}]`)
+})

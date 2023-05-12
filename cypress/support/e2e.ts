@@ -18,3 +18,22 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      /**
+       * Custom command to select DOM element by data-cy attribute.
+       * @example cy.dataCy('greeting')
+       */
+      dataTest(value: string): Chainable<JQuery<HTMLElement>>
+
+      /**
+       * Custom command for logging in
+       * @param username 
+       * @param password 
+       */
+      login(username: string, password: string): void
+    }
+  }
+}
