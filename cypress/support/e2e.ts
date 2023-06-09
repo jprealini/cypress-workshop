@@ -34,6 +34,8 @@ declare global {
        * @param password 
        */
       login(username: string, password: string): void
+
+      apiLogin(username: string, password: string): void
     }
   }
 }
