@@ -21,18 +21,15 @@ describe("Home Page", () => {
         cy.visit("/")
     });
 
-    it.only("Validate that the logged in user name shows in the dashboard", () => {
-      
+    it.only("Validate that the logged in user name shows in the dashboard", () => {      
       cy.dataTest("sidenav-username").should("contain", Cypress.env("testUserName"))
     }) 
 
     it.only("Validate that the logged in user name shows in the dashboard", () => {
-
       cy.dataTest("sidenav-username").should("contain", Cypress.env("testUserName"))
     }) 
 
     it.only("Validate that the logged in user name shows in the dashboard", () => {
-
       cy.dataTest("sidenav-username").should("contain", Cypress.env("testUserName"))
     }) 
 

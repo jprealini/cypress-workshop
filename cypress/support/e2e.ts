@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import 'cypress-each'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
@@ -35,7 +36,7 @@ declare global {
        */
       login(username: string, password: string): void
 
-      apiLogin(username: string, password: string): void
+      apiLogin(userName: string, password: string): void
     }
   }
 }
