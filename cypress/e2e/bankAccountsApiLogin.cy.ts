@@ -16,14 +16,7 @@ describe.each(users)(`Bank Accounts Page with API Login for user`, (user: User) 
   it(`Special Characters in Username ${user.username}`, () => {
     bankAccountsPage.getPaneTitle().should("exist")
   })
-
-  it("Special Characters in Username", () => {
-    bankAccountsPage.getPaneTitle().should("exist")
-  })
-
-  it("Special Characters in Username", () => {
-    bankAccountsPage.getPaneTitle().should("exist")
-  })
+  
 
   afterEach(() => {
     Cypress.session.clearAllSavedSessions() 

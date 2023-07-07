@@ -1,40 +1,36 @@
 import { auth } from "../support/services/auth"
+let users = require("../fixtures/users.json")
+let fakeResponse = require("../fixtures/fakePublicResponse.json")
 
 describe("Home Page", () => {
-
+  let user: User = users[0]
     beforeEach(() => {
-      // UI LOGIN
-      cy.session("userLogin", () => {
-        cy.login(Cypress.env("testUserName"), "s3cret")
-      })        
-
-      // API LOGIN
-        // auth.login(Cypress.env("testUserName"), "s3cret").then((response) => {
-        //   /**
-        //    * extraer fixture
-        //    * reemplazar los bloques "user" con el user del response
-        //    * reemplazar los bloques "event" con el payload del request
-        //    * guardar ese objeto como una key authState en el localStorage
-        //    */
-        // })       
       
-        cy.visit("/")
+      cy.session("apiLogin", () => {        
+        cy.apiLogin(user.username, user.password)
+      })
+      
     });
 
-    it.only("Validate that the logged in user name shows in the dashboard", () => {      
-      cy.dataTest("sidenav-username").should("contain", Cypress.env("testUserName"))
+    it.only("Validate that the logged in user name shows in the dashboard", () => {  
+      cy.intercept("GET", "http://localhost:3001/transactions/public", {
+        statusCode: 200,
+        body: fakeResponse,
+      }).as("public")  
+      cy.visit("/") 
+      cy.wait("@public")
+      cy.dataTest("sidenav-username").should("contain", user.username)
     }) 
 
-    it.only("Validate that the logged in user name shows in the dashboard", () => {
-      cy.dataTest("sidenav-username").should("contain", Cypress.env("testUserName"))
+    it("Validate that the logged in user name shows in the dashboard", () => {
+      cy.visit("/")
+      cy.dataTest("sidenav-username").should("contain", user.username)
+      
     }) 
 
-    it.only("Validate that the logged in user name shows in the dashboard", () => {
-      cy.dataTest("sidenav-username").should("contain", Cypress.env("testUserName"))
-    }) 
-
-    //200
-
-
+    it("Validate that the logged in user name shows in the dashboard", () => {
+      cy.visit("/")
+      cy.dataTest("sidenav-username").should("contain", user.username)
+    })
 
 })

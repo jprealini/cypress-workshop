@@ -6,8 +6,8 @@ describe("Bank Accounts Page", () => {
       cy.login("User", "password")
     });
 
-    it("Special Characters in Username", () => {
-      loginPage.fillInLoginFields("$%&/()", "password")
+    it("Special Characters in Username", () => {      
+      loginPage.fillInLoginFields("$%&/()", "password")      
       cy.get("#username").should("have.class","MuiOutlinedInput-input")
     })
 
